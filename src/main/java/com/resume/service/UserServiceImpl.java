@@ -30,12 +30,17 @@ public class UserServiceImpl implements IUserService{
 
 	@Override
 	public boolean saveUser(User user) {
-		boolean status = false;
 		Integer result = userRepository.addUser(user);
 		if(result != null && result > 0) {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public boolean deleteUser(Long userId) {
+		Integer result = userRepository.deleteUser(userId);
+		return (result > 0);
 	};
 	
 	

@@ -61,6 +61,13 @@ public class UserRepositoryImpl implements IUserRepository{
         String mysqlDateString = formatter.format(now);
 		
 		return jdbcTemplate.update(query, user.getUsername(), user.getPassword(), user.getGender(), mysqlDateString);
+	}
+
+
+	@Override
+	public Integer deleteUser(Long userId) {
+		String query = "delete from user where user_id = ?";
+		return jdbcTemplate.update(query, userId);
 	};
 	
 	

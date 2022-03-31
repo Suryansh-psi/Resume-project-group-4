@@ -11,5 +11,7 @@ public interface IUserRepository {
 	public List<User> getUserById(Long user_id);
 	
 	public Integer addUser(User user);
+	
+	public Integer deleteUser(Long userId);
 
 }

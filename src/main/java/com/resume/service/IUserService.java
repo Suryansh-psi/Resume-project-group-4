@@ -12,5 +12,7 @@ public interface IUserService {
 	public List<User> getUserById(Long user_id);
 	
 	public boolean saveUser(User user);
+	
+	public boolean deleteUser(Long userId);
 
 }
