@@ -21,9 +21,9 @@ public class ResumeServiceImpl implements IResumeService{
 	}
 
 	@Override
-	public boolean saveResume(Resume resume) {
-		Integer result = resumeRepository.saveResume(resume);
-		return (result != null && result > 0);
+	public Long saveResume(Resume resume) {
+		Long result = resumeRepository.saveResume(resume);
+		return result;
 	}
 
 	@Override

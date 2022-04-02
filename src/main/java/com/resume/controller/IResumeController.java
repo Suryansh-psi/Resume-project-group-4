@@ -10,5 +10,5 @@ public interface IResumeController {
 
 //	public ResponseEntity<List<Resume>> getResume();
 	
-	public ResponseEntity<Void> saveResume(Resume resume);
+	public ResponseEntity<Long> saveResume(Resume resume);
 }

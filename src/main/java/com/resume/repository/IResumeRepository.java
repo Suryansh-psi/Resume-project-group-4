@@ -8,7 +8,7 @@ public interface IResumeRepository {
 	
 	public List<Resume> getResumeByUserId(Long user_id);
 	
-	public Integer saveResume(Resume resume);
+	public Long saveResume(Resume resume);
 	
 	public Integer deleteResume(Long resumeId);
 

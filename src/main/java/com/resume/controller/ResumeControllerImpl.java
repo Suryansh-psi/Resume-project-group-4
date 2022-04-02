@@ -27,16 +27,8 @@ public class ResumeControllerImpl implements IResumeController{
 	}
 
 	@PostMapping("/resume")
-	public ResponseEntity<Void> saveResume(@RequestBody Resume resume) {
-		ResponseEntity response;
-		boolean status = resumeService.saveResume(resume);
-		if(status) {
-			response = ResponseEntity.status(HttpStatus.CREATED).build();
-		}
-		else {
-			response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
-		return response;
+	public ResponseEntity<Long> saveResume(@RequestBody Resume resume) {
+		return ResponseEntity.ok(resumeService.saveResume(resume));
 	}
 	
 	@DeleteMapping("resume/{id}")

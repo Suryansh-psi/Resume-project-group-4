@@ -1,5 +1,7 @@
 package com.resume.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,12 @@ public class WorkExpServiceImpl implements IWorkExpService {
 	
 	@Autowired
 	private IWorkExpRepository workExpRepository;
+	
+	@Override
+	public List<WorkExp> getWorkExpByResumeId(Long resumeId) {
+		List<WorkExp> workExp = workExpRepository.getWorkExpByResumeId(resumeId);
+		return workExp;
+	}
 
 	@Override
 	public boolean saveWorkExp(WorkExp workExp) {
@@ -23,5 +31,7 @@ public class WorkExpServiceImpl implements IWorkExpService {
 		Integer result = workExpRepository.deleteWorkExp(workExpId);
 		return (result > 0);
 	}
+
+	
 
 }

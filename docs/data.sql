@@ -34,6 +34,7 @@ create table workExp(
 	workExp_id int auto_increment primary key,
     client_desc Longtext not null,
     country varchar(50) not null,
+    projectName varchar(200),
     role json not null,
     startDate date not null,
     endDate date not null,

@@ -22,8 +22,8 @@ public class WorkExpControllerImpl implements IWorkExpController{
 	private IWorkExpService workExpService;
 	
 	@GetMapping("/workexp/resume/{resumeId}")
-	public ResponseEntity<List<WorkExp>> getWorkExpByResumeId(@PathVariable resumeId) {
-		return null;
+	public ResponseEntity<List<WorkExp>> getWorkExpByResumeId(@PathVariable Long resumeId) {
+		return ResponseEntity.ok(workExpService.getWorkExpByResumeId(resumeId));
 	}
 
 	@PostMapping("/workexp")
