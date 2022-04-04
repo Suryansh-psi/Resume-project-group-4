@@ -32,6 +32,40 @@ public class ResumeServiceImpl implements IResumeService{
 		return (result > 0);
 	}
 
+	@Override
+	public Resume updateResume(Resume resume, Long resumeId) {
+		Resume resumeResponse = null;
+		int result = resumeRepository.updateResume(resume, resumeId);
+		if(result > 0) {
+			resumeResponse = resumeRepository.getResumeByResumeId(resumeId).get(result - 1);
+		}
+		return resumeResponse;
+//		return result;
+	}
+
+	@Override
+	public Resume updateAboutSection(Resume resume, Long resumeId) {
+		Resume resumeResponse = null;
+		int result = resumeRepository.updateAboutSection(resume, resumeId);
+		if(result > 0) {
+//			System.out.println("------------" + resumeRepository.getResumeByUserId(resumeId).get(result) + "----------");
+			resumeResponse = resumeRepository.getResumeByResumeId(resumeId).get(result - 1);
+		}
+		return resumeResponse;
+//		return result;
+	}
+
+	@Override
+	public Resume updateSkills(Resume resume, Long resumeId) {
+		Resume resumeResponse = null;
+		int result = resumeRepository.updateSkills(resume, resumeId);
+		if(result > 0) {
+			resumeResponse = resumeRepository.getResumeByResumeId(resumeId).get(result - 1);
+		}
+		return resumeResponse;
+//		return result;
+	}
+
 	
 	
 	

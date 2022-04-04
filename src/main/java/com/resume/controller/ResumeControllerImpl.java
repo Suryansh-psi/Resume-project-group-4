@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,5 +37,25 @@ public class ResumeControllerImpl implements IResumeController{
 		resumeService.deleteResume(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
+	
+	@PutMapping("/resume/{resumeId}")
+	public ResponseEntity<Resume> updateResume(@RequestBody Resume resume, @PathVariable Long resumeId) {
+		Resume response = resumeService.updateResume(resume, resumeId);
+		return ResponseEntity.ok(response);
+	}
+	
+	@PutMapping("/resume/about/{resumeId}")
+	public ResponseEntity<Resume> updateAboutSection(@RequestBody Resume resume, @PathVariable Long resumeId) {
+		Resume response = resumeService.updateAboutSection(resume, resumeId);
+		return ResponseEntity.ok(response);
+	}
+	
+	@PutMapping("/resume/skills/{resumeId}")
+	public ResponseEntity<Resume> updateSkills(@RequestBody Resume resume, @PathVariable Long resumeId) {
+		Resume response = resumeService.updateSkills(resume, resumeId);
+		return ResponseEntity.ok(response);
+	}
+	
+	
 
 }

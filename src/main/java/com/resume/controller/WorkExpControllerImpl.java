@@ -27,15 +27,16 @@ public class WorkExpControllerImpl implements IWorkExpController{
 	}
 
 	@PostMapping("/workexp")
-	public ResponseEntity<Void> saveWorkExp(@RequestBody WorkExp workExp) {
-		ResponseEntity response;
-		boolean status = workExpService.saveWorkExp(workExp);
-		if(status) {
-			response = ResponseEntity.status(HttpStatus.CREATED).build();
-		} else {
-			response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
-		return response;
+	public ResponseEntity<Long> saveWorkExp(@RequestBody WorkExp workExp) {
+//		ResponseEntity response;
+//		Long status = workExpService.saveWorkExp(workExp);
+//		if(status) {
+//			response = ResponseEntity.status(HttpStatus.CREATED).build();
+//		} else {
+//			response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+//		}
+//		return response;
+		return ResponseEntity.ok(workExpService.saveWorkExp(workExp));
 	}
 	
 	@DeleteMapping("workexp/{id}")

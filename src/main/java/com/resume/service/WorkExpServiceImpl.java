@@ -21,9 +21,10 @@ public class WorkExpServiceImpl implements IWorkExpService {
 	}
 
 	@Override
-	public boolean saveWorkExp(WorkExp workExp) {
-		Integer result = workExpRepository.saveWorkExp(workExp);
-		return (result != null && result > 0);
+	public Long saveWorkExp(WorkExp workExp) {
+		Long result = workExpRepository.saveWorkExp(workExp);
+		return result;
+//		return (result != null && result > 0);
 	}
 
 	@Override

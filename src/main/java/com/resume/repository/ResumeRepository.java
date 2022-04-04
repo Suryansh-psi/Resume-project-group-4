@@ -23,6 +23,29 @@ public class ResumeRepository implements IResumeRepository{
 //	private String INSERT_RESUME = "INSERT INTO resume(name, role, total_exp, image, about_me, about_me_points, skills, created_at, update_at, status, reviewer, user_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	@Override
+	public List<Resume> getResumeByResumeId(Long resume_id) {
+		String query = "select * from resume where resume_id = " + resume_id;
+		return jdbcTemplate.query(query, (rs, rowNum) -> {
+			Resume resume = new Resume();
+			resume.setResumeId(rs.getLong("resume_id"));
+			resume.setName(rs.getString("name"));
+			resume.setRole(new Gson().fromJson(rs.getString("role"), List.class));
+			resume.setTotal_exp(rs.getInt("total_exp"));
+			resume.setImage(rs.getString("image"));
+			resume.setAbout_me(rs.getString("about_me"));
+			resume.setAbout_me_points(new Gson().fromJson(rs.getString("about_me_points"), List.class));
+			resume.setSkills(new Gson().fromJson(rs.getString("skills"), List.class));
+			resume.setCreated_at(rs.getDate("created_at"));
+			resume.setUpdated_at(rs.getDate("update_at"));
+			resume.setStatus(rs.getString("status"));
+			resume.setReviewer(rs.getString("reviewer"));
+			resume.setUserId(rs.getLong("user_id"));
+			return resume;
+		});
+	}
+	
+	
+	@Override
 	public List<Resume> getResumeByUserId(Long user_id) {
 		String query = "select * from resume where user_id = " + user_id;
 		return jdbcTemplate.query(query, (rs, rowNum) -> {
@@ -70,6 +93,38 @@ public class ResumeRepository implements IResumeRepository{
 	public Integer deleteResume(Long resumeId) {
 		String query = "delete from resume where resume_id = ?";
 		return jdbcTemplate.update(query, resumeId);
+	}
+
+	@Override
+	public Integer updateResume(Resume resume, Long resumeId) {
+		String query = "update resume set name = ?, role = ?, total_exp = ?, image = ? where resume_id = ?";
+		
+		return jdbcTemplate.update(query, resume.getName(),
+					new Gson().toJson(resume.getRole()),
+					resume.getTotal_exp(),
+					resume.getImage(),
+					resumeId
+				);
+	}
+
+	@Override
+	public Integer updateAboutSection(Resume resume, Long resumeId) {
+		String query = "update resume set about_me = ?, about_me_points = ? where resume_id = ?";
+		
+		return jdbcTemplate.update(query, resume.getAbout_me(),
+					new Gson().toJson(resume.getAbout_me_points()),
+					resumeId
+				);
+	}
+
+	@Override
+	public Integer updateSkills(Resume resume, Long resumeId) {
+		String query = "update resume set skills = ? where resume_id = ?";
+		
+		return jdbcTemplate.update(query,
+				new Gson().toJson(resume.getSkills()),
+				resumeId
+			);
 	}
 
 	

@@ -6,6 +6,6 @@ import com.resume.model.WorkExp;
 
 public interface IWorkExpController {
 	
-	public ResponseEntity<Void> saveWorkExp(WorkExp workExp);
+	public ResponseEntity<Long> saveWorkExp(WorkExp workExp);
 
 }

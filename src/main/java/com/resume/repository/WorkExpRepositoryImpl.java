@@ -1,11 +1,14 @@
 package com.resume.repository;
 
+import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.google.gson.Gson;
@@ -41,7 +44,7 @@ public class WorkExpRepositoryImpl implements IWorkExpRepository {
 	}
 
 	@Override
-	public Integer saveWorkExp(WorkExp workExp) {
+	public Long saveWorkExp(WorkExp workExp) {
 		String query = "INSERT INTO workexp(client_desc, country, projectName, role, startDate, endDate, bussiness_sol, tech_stack, resume_id, project_resp) VALUES(?, ? ,?, ?, ?, ?, ?, ?, ?, ?)";
 		Date start = (Date) workExp.getStartDate();
 		Date end = (Date) workExp.getEndDate();
@@ -51,18 +54,42 @@ public class WorkExpRepositoryImpl implements IWorkExpRepository {
 		String endDate = formatter.format(end);
 		
 		
-		return jdbcTemplate.update(query, 
-					workExp.getClientDesc(),
-					workExp.getCountry(),
-					workExp.getProjectName(),
-					new Gson().toJson(workExp.getRole()),
-					startDate,
-					endDate,
-					workExp.getBussinessSol(),
-					new Gson().toJson(workExp.getTechStack()),
-					workExp.getResumeId(),
-					new Gson().toJson(workExp.getProjectResp())
-				);
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+
+		   jdbcTemplate.update(connection -> {
+		       PreparedStatement ps = connection.prepareStatement(query ,new String[] { "workExp_id" });
+		         
+		         	ps.setString(1, workExp.getClientDesc());
+		         	ps.setString(2, workExp.getCountry());
+					ps.setString(3, workExp.getProjectName());
+					ps.setString(4, new Gson().toJson(workExp.getRole()));
+					ps.setString(5, startDate);
+					ps.setString(6, endDate);
+					ps.setString(7, workExp.getBussinessSol());
+					ps.setString(8, new Gson().toJson(workExp.getTechStack()));
+					ps.setLong(9, workExp.getResumeId());
+					ps.setString(10, new Gson().toJson(workExp.getProjectResp()));
+					
+		         return ps;
+		       }, keyHolder);
+
+
+		       return  keyHolder.getKey().longValue();
+
+		
+		
+//		return jdbcTemplate.update(query, 
+//					workExp.getClientDesc(),
+//					workExp.getCountry(),
+//					workExp.getProjectName(),
+//					new Gson().toJson(workExp.getRole()),
+//					startDate,
+//					endDate,
+//					workExp.getBussinessSol(),
+//					new Gson().toJson(workExp.getTechStack()),
+//					workExp.getResumeId(),
+//					new Gson().toJson(workExp.getProjectResp())
+//				);
 	}
 
 	@Override

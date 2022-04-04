@@ -8,7 +8,7 @@ public interface IWorkExpRepository {
 	
 	public List<WorkExp> getWorkExpByResumeId(Long resumeId);
 
-	public Integer saveWorkExp(WorkExp workExp);
+	public Long saveWorkExp(WorkExp workExp);
 	
 	public Integer deleteWorkExp(Long workExpId);
 }
