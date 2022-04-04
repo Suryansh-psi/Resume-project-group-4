@@ -116,6 +116,12 @@ public class WorkExpRepositoryImpl implements IWorkExpRepository {
 		String query = "delete from workexp where workExp_id = ?";
 		return jdbcTemplate.update(query, workExpId);
 	}
+	
+	@Override
+	public Integer deleteWorkExpByResumeId(Long resume_id) {
+		String query = "delete from workexp where resume_id = ?";
+		return jdbcTemplate.update(query, resume_id);
+	}
 
 	@Override
 	public Integer updateWorkExp(WorkExp workExp, Long workExpId) {

@@ -7,12 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.resume.model.Resume;
 import com.resume.repository.IResumeRepository;
+import com.resume.repository.IWorkExpRepository;
 
 @Service
 public class ResumeServiceImpl implements IResumeService{
 	
 	@Autowired
 	private IResumeRepository resumeRepository;
+	
+	@Autowired
+	private IWorkExpRepository workExpRepository;
 	
 	@Override
 	public List<Resume> getResumeByUserId(Long user_id) {
@@ -28,7 +32,12 @@ public class ResumeServiceImpl implements IResumeService{
 
 	@Override
 	public boolean deleteResume(Long resumeId) {
-		Integer result = resumeRepository.deleteResume(resumeId);
+		Integer result = workExpRepository.deleteWorkExpByResumeId(resumeId);
+		if (result > 0) {
+			
+			result = resumeRepository.deleteResume(resumeId);
+		}
+		
 		return (result > 0);
 	}
 

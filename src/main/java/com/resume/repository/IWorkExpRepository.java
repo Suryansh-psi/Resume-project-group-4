@@ -14,6 +14,8 @@ public interface IWorkExpRepository {
 	
 	public Integer deleteWorkExp(Long workExpId);
 	
+	public Integer deleteWorkExpByResumeId(Long resume_id);
+	
 	public Integer updateWorkExp(WorkExp workExp, Long workExpId);
 	
 }
