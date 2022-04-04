@@ -33,6 +33,16 @@ public class WorkExpServiceImpl implements IWorkExpService {
 		return (result > 0);
 	}
 
+	@Override
+	public WorkExp updateWorkExp(WorkExp workExp, Long workExpId) {
+		WorkExp workExpResponse = null;
+		int result = workExpRepository.updateWorkExp(workExp, workExpId);
+		if(result > 0) {
+			workExpResponse = workExpRepository.getWorkExpByWorkExpId(workExpId).get(result - 1);
+		}
+		return workExpResponse;
+	}
+
 	
 
 }

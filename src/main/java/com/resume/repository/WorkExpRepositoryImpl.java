@@ -21,6 +21,25 @@ public class WorkExpRepositoryImpl implements IWorkExpRepository {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
+	@Override
+	public List<WorkExp> getWorkExpByWorkExpId(Long workExpId) {
+		String query = "select * from workexp where workExp_id = " + workExpId;
+		return jdbcTemplate.query(query, (rs, rowNum) -> {
+			WorkExp workExp = new WorkExp();
+			workExp.setWorkExpId(rs.getLong("workExp_id"));
+			workExp.setClientDesc(rs.getString("client_desc"));
+			workExp.setCountry(rs.getString("country"));
+			workExp.setProjectName(rs.getString("projectName"));
+			workExp.setRole(new Gson().fromJson(rs.getString("role"), List.class));
+			workExp.setStartDate(rs.getDate("startDate"));
+			workExp.setEndDate(rs.getDate("endDate"));
+			workExp.setBussinessSol(rs.getString("bussiness_sol"));
+			workExp.setTechStack(new Gson().fromJson(rs.getString("tech_stack"), List.class));
+			workExp.setProjectResp(new Gson().fromJson(rs.getString("project_resp"), List.class));
+			workExp.setResumeId(rs.getLong("resume_id"));
+			return workExp;
+		});
+	}
 	
 	@Override
 	public List<WorkExp> getWorkExpByResumeId(Long resumeId) {
@@ -97,6 +116,29 @@ public class WorkExpRepositoryImpl implements IWorkExpRepository {
 		String query = "delete from workexp where workExp_id = ?";
 		return jdbcTemplate.update(query, workExpId);
 	}
+
+	@Override
+	public Integer updateWorkExp(WorkExp workExp, Long workExpId) {
+		String query = "update workexp set client_desc = ?, country = ?, projectName = ?, role = ?, startDate = ?, endDate = ?, bussiness_sol = ?, tech_stack = ?, project_resp = ? where workExp_id = " + workExpId;
+		Date start = (Date) workExp.getStartDate();
+		Date end = (Date) workExp.getEndDate();
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+		String startDate = formatter.format(start);
+		String endDate = formatter.format(end);
+		return jdbcTemplate.update(query, workExp.getClientDesc(),
+				workExp.getCountry(),
+				workExp.getProjectName(),
+				new Gson().toJson(workExp.getRole()),
+				startDate,
+				endDate,
+				workExp.getBussinessSol(),
+				new Gson().toJson(workExp.getTechStack()),
+				new Gson().toJson(workExp.getProjectResp())
+				);
+	}
+
+	
 
 	
 	

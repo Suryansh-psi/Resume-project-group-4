@@ -11,5 +11,7 @@ public interface IWorkExpService {
 	public Long saveWorkExp(WorkExp workExp);
 	
 	public boolean deleteWorkExp(Long workExpId);
+	
+	public WorkExp updateWorkExp(WorkExp workExp, Long workExpId);
 
 }
