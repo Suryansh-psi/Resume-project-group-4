@@ -28,7 +28,7 @@ public class WorkExpControllerImpl implements IWorkExpController{
 	}
 
 	@PostMapping("/workexp")
-	public ResponseEntity<Long> saveWorkExp(@RequestBody WorkExp workExp) {
+	public ResponseEntity<List<Long>> saveWorkExp(@RequestBody List<WorkExp> workExp) {
 //		ResponseEntity response;
 //		Long status = workExpService.saveWorkExp(workExp);
 //		if(status) {

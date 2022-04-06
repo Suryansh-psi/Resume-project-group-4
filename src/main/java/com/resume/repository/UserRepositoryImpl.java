@@ -3,6 +3,7 @@ package com.resume.repository;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -34,7 +35,7 @@ public class UserRepositoryImpl implements IUserRepository{
 	
 	
 	@Override
-	public List<User> getUserById(Long user_id) {
+	public Optional<User> getUserById(Long user_id) {
 		String query = "select * from user where user_id= "+user_id;
 		return jdbcTemplate.query(query, 
 				(rs, rowNum) -> {
@@ -46,7 +47,7 @@ public class UserRepositoryImpl implements IUserRepository{
 					user.setDob(rs.getDate("dob"));
 					return user;
 				}
-			);
+			).stream().findFirst();
 	}
 
 

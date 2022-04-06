@@ -6,7 +6,7 @@ import com.resume.model.Resume;
 
 public interface IResumeService {
 	
-	
+	public Resume getAllDetailsByResumeId(Long resume_id);
 	
 	public List<Resume> getResumeByUserId(Long user_id);
 	

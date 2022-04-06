@@ -23,14 +23,12 @@ public class UserControllerImpl implements IUserController {
 
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> getUser() {
-		
-		
 		return ResponseEntity.ok(userService.getAllUsers());
 	}
 	
 	
 	@GetMapping("/users/{user_id}")
-	public ResponseEntity<List<User>> getUser(@PathVariable Long user_id){
+	public ResponseEntity<User> getUser(@PathVariable Long user_id){
 		
 		return ResponseEntity.ok(userService.getUserById(user_id));
 	}

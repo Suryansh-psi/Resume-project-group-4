@@ -8,7 +8,7 @@ public interface IWorkExpService {
 	
 	public List<WorkExp> getWorkExpByResumeId(Long resumeId);
 	
-	public Long saveWorkExp(WorkExp workExp);
+	public List<Long> saveWorkExp(List<WorkExp> workExp);
 	
 	public boolean deleteWorkExp(Long workExpId);
 	

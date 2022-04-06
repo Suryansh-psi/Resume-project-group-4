@@ -1,6 +1,7 @@
 package com.resume.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,9 @@ public class UserServiceImpl implements IUserService{
 	}
 
 	@Override
-	public List<User> getUserById(Long user_id) {
-		List<User> user = userRepository.getUserById(user_id);
-		return user;
+	public User getUserById(Long user_id) {
+		Optional<User> user = userRepository.getUserById(user_id);
+		return user.get();
 	}
 
 	@Override

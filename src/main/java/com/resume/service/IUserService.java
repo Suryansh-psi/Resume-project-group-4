@@ -9,7 +9,7 @@ public interface IUserService {
 	
 	public List<User> getAllUsers();
 	
-	public List<User> getUserById(Long user_id);
+	public User getUserById(Long user_id);
 	
 	public boolean saveUser(User user);
 	

@@ -18,7 +18,14 @@ public class Resume {
 	private String status;
 	private String reviewer;
 	private Long userId;
+	private List<WorkExp> workExps;
 	
+	public List<WorkExp> getWorkExps() {
+		return workExps;
+	}
+	public void setWorkExps(List<WorkExp> workExps) {
+		this.workExps = workExps;
+	}
 	public Long getResumeId() {
 		return resumeId;
 	}

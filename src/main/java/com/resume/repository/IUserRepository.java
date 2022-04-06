@@ -1,6 +1,7 @@
 package com.resume.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.resume.model.User;
 
@@ -8,7 +9,7 @@ public interface IUserRepository {
 	
 	public List<User> getUsers();
 	
-	public List<User> getUserById(Long user_id);
+	public Optional<User> getUserById(Long user_id);
 	
 	public Integer addUser(User user);
 	

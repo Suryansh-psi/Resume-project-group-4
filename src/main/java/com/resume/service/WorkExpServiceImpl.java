@@ -1,5 +1,6 @@
 package com.resume.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,17 @@ public class WorkExpServiceImpl implements IWorkExpService {
 	}
 
 	@Override
-	public Long saveWorkExp(WorkExp workExp) {
-		Long result = workExpRepository.saveWorkExp(workExp);
-		return result;
+	public List<Long> saveWorkExp(List<WorkExp> workExp) {
+//		Long result = workExpRepository.saveWorkExp(workExp);
+//		return result;
 //		return (result != null && result > 0);
+		
+		List<Long> arr = new ArrayList<>();
+		int size = workExp.size();
+		for(int i=0; i<size; i++ ) {
+			arr.add(workExpRepository.saveWorkExp(workExp.get(i)));
+		}
+		return arr;
 	}
 
 	@Override

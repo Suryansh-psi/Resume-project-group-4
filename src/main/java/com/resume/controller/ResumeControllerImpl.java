@@ -26,6 +26,12 @@ public class ResumeControllerImpl implements IResumeController{
 	public ResponseEntity<List<Resume>> getResumeByUserId(@PathVariable Long user_id) {
 		return ResponseEntity.ok(resumeService.getResumeByUserId(user_id));
 	}
+	
+	@GetMapping("resume/alldetails/{resume_id}")
+	public ResponseEntity<Resume> getAllDetailsByResumeId(@PathVariable Long resume_id) {
+		Resume resume = resumeService.getAllDetailsByResumeId(resume_id);
+		return ResponseEntity.ok(resume);
+	}
 
 	@PostMapping("/resume")
 	public ResponseEntity<Long> saveResume(@RequestBody Resume resume) {
