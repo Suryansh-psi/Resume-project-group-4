@@ -13,5 +13,6 @@ public interface IWorkExpService {
 	public boolean deleteWorkExp(Long workExpId);
 	
 	public WorkExp updateWorkExp(WorkExp workExp, Long workExpId);
-
+	
+//	public List<WorkExp> updateWorkExp(List<WorkExp> workExp, Long resume_id);
 }

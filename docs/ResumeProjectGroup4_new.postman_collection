@@ -58,7 +58,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/2",
+					"raw": "http://localhost:8080/users/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -66,7 +66,7 @@
 					"port": "8080",
 					"path": [
 						"users",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -107,7 +107,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"clientDesc\": \"test\",\r\n  \"country\": \"test\",\r\n  \"projectName\": \"test\",\r\n  \"role\": [\r\n    \"test\", \"test\"\r\n  ],\r\n  \"startDate\": \"2022-03-11\",\r\n  \"endDate\": \"2022-03-11\",\r\n  \"bussinessSol\": \"test\",\r\n  \"techStack\": [\r\n    \"test\", \"test1\"\r\n  ],\r\n  \"resumeId\": \"2\",\r\n  \"projectResp\": [\r\n    \"test\", \"test1\"\r\n  ]\r\n}",
+					"raw": "[\r\n    {\r\n        \"clientDesc\": \"test\",\r\n        \"country\": \"test\",\r\n        \"projectName\": \"test\",\r\n        \"role\": [\r\n            \"test\", \"test\"\r\n        ],\r\n        \"startDate\": \"2022-03-11\",\r\n        \"endDate\": \"2022-03-11\",\r\n        \"bussinessSol\": \"test\",\r\n        \"techStack\": [\r\n            \"test\", \"test1\"\r\n        ],\r\n        \"resumeId\": \"4\",\r\n        \"projectResp\": [\r\n            \"test\", \"test1\"\r\n        ]\r\n    },\r\n    {\r\n        \"clientDesc\": \"test\",\r\n        \"country\": \"test\",\r\n        \"projectName\": \"test\",\r\n        \"role\": [\r\n            \"test\", \"test\"\r\n        ],\r\n        \"startDate\": \"2022-03-11\",\r\n        \"endDate\": \"2022-03-11\",\r\n        \"bussinessSol\": \"test\",\r\n        \"techStack\": [\r\n            \"test\", \"test1\"\r\n        ],\r\n        \"resumeId\": \"4\",\r\n        \"projectResp\": [\r\n            \"test\", \"test1\"\r\n        ]\r\n    },\r\n    {\r\n        \"clientDesc\": \"test\",\r\n        \"country\": \"test\",\r\n        \"projectName\": \"test\",\r\n        \"role\": [\r\n            \"test\", \"test\"\r\n        ],\r\n        \"startDate\": \"2022-03-11\",\r\n        \"endDate\": \"2022-03-11\",\r\n        \"bussinessSol\": \"test\",\r\n        \"techStack\": [\r\n            \"test\", \"test1\"\r\n        ],\r\n        \"resumeId\": \"4\",\r\n        \"projectResp\": [\r\n            \"test\", \"test1\"\r\n        ]\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -266,7 +266,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"about_me\": \"string\",\r\n  \"about_me_points\": [\r\n    \"string5\"\r\n  ]\r\n}",
+					"raw": "{\r\n  \"about_me\": \"string\",\r\n  \"about_me_points\": [\r\n    \"string51\"\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -334,7 +334,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/workexp/3",
+					"raw": "http://localhost:8080/workexp/10",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -342,7 +342,28 @@
 					"port": "8080",
 					"path": [
 						"workexp",
-						"3"
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllDetailsByResumeId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/resume/alldetails/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"alldetails",
+						"2"
 					]
 				}
 			},

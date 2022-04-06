@@ -52,4 +52,10 @@ public class WorkExpControllerImpl implements IWorkExpController{
 		return ResponseEntity.ok(response);
 	}
 	
+//	@PutMapping("workexp/update/{resume_id}")
+//	public ResponseEntity<List<WorkExp>> updateWorkExp(@RequestBody List<WorkExp> workExp, @PathVariable Long resume_id) {
+//		List<WorkExp> response = workExpService.updateWorkExp(workExp, resume_id);
+//		return ResponseEntity.ok(response);
+//	}
+	
 }
