@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "d9ad62ad-d8df-4dec-8ca6-0b108f938675",
+		"name": "ResumeProjectGroup4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"test2\",\r\n    \"password\" : \"test_password\",\r\n    \"gender\": \"male\",\r\n    \"dob\" : \"2008-08-12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateResume",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"test\",\r\n    \"role\" : [\"test1\", \"test2\"],\r\n    \"total_exp\" : \"4\",\r\n    \"image\" : \"this is test image\",\r\n    \"userId\" : \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/resume",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateWorkExp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clientDesc\": \"test\",\r\n  \"country\": \"test\",\r\n  \"projectName\": \"test\",\r\n  \"role\": [\r\n    \"test\", \"test\"\r\n  ],\r\n  \"startDate\": \"2022-03-11\",\r\n  \"endDate\": \"2022-03-11\",\r\n  \"bussinessSol\": \"test\",\r\n  \"techStack\": [\r\n    \"test\", \"test1\"\r\n  ],\r\n  \"resumeId\": \"2\",\r\n  \"projectResp\": [\r\n    \"test\", \"test1\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/workexp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workexp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteResume",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/resume/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteWorkExp",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/workexp/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workexp",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getWorkExpByResumeId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/workexp/resume/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workexp",
+						"resume",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getResumeByUserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/resume/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateResume",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"test2\",\r\n    \"role\" : [\"test20\", \"test21\"],\r\n    \"total_exp\" : \"7\",\r\n    \"image\" : \"this is a test image\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/resume/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAboutMe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"about_me\": \"string\",\r\n  \"about_me_points\": [\r\n    \"string5\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/resume/about/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"about",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSkills",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"skills\": [\r\n    \"strings\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/resume/skills/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"skills",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateWorkExp",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clientDesc\": \"string\",\r\n  \"country\": \"string2\",\r\n  \"projectName\": \"string\",\r\n  \"role\": [\r\n    \"string\"\r\n  ],\r\n  \"startDate\": \"2022-04-04T20:28:11.244Z\",\r\n  \"endDate\": \"2022-04-04T20:28:11.244Z\",\r\n  \"bussinessSol\": \"string\",\r\n  \"techStack\": [\r\n    \"string\"\r\n  ],\r\n  \"projectResp\": [\r\n    \"string\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/workexp/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workexp",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
