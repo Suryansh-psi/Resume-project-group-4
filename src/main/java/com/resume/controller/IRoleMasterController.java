@@ -8,6 +8,6 @@ import com.resume.model.RoleMaster;
 
 public interface IRoleMasterController {
 	public ResponseEntity<List<RoleMaster>> getRoleMaster();
-	public ResponseEntity<Void> saveRoleMaster(RoleMaster roleMaster);
+	public ResponseEntity<Long> saveRoleMaster(RoleMaster roleMaster);
 
 }

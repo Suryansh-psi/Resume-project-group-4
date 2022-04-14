@@ -29,17 +29,10 @@ public class RoleMasterController implements IRoleMasterController{
 	}
 
 	@PostMapping("/role")
-	public ResponseEntity<Void> saveRoleMaster(@RequestBody RoleMaster roleMaster) {
+	public ResponseEntity<Long> saveRoleMaster(@RequestBody RoleMaster roleMaster) {
 		// TODO Auto-generated method stub
-		ResponseEntity response;
-		boolean status = roleMasterService.saveRoleMaster(roleMaster);
-		if(status) {
-			response = ResponseEntity.status(HttpStatus.CREATED).build();
-		} else {
-			response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
 		
-		return response;
+		return ResponseEntity.ok(roleMasterService.saveRoleMaster(roleMaster));
 	}
 	
 	@DeleteMapping("role/{role_id}")

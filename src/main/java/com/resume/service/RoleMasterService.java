@@ -22,13 +22,10 @@ public class RoleMasterService implements IRoleMasterService{
 	}
 
 	@Override
-	public boolean saveRoleMaster(RoleMaster roleMaster) {
+	public Long saveRoleMaster(RoleMaster roleMaster) {
 		// TODO Auto-generated method stub
-		Integer result = roleMasterRepository.addRoleMaster(roleMaster);
-		if(result != null && result > 0) {
-			return true;
-		}
-		return false;
+		Long result = roleMasterRepository.addRoleMaster(roleMaster);
+		return result;
 	}
 	
 

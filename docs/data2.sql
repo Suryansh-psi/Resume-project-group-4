@@ -44,4 +44,12 @@ create table roleMaster(
                            role_desc varchar(150),
                            isVisible boolean
                            );
+                           
+                           
+create table techStack(
+	techStackId int auto_increment primary key,
+    techStackName varchar(30),
+    techStackDesc varchar(150),
+    isVisible boolean
+);                           
           

@@ -10,7 +10,7 @@ public interface IRoleMasterRepository {
 	public List<RoleMaster> getRoleMaster();
 	
 	public Optional<RoleMaster> getRoleMasterById(Long role_id);
-	public Integer addRoleMaster(RoleMaster roleMaster);
+	public Long addRoleMaster(RoleMaster roleMaster);
 	
 	public Integer deleteRoleMaster(Long role_id);
 	

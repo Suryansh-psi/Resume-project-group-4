@@ -8,7 +8,7 @@ import com.resume.model.RoleMaster;
 public interface IRoleMasterService {
 	public List<RoleMaster> getAllRole();
 	
-    public boolean saveRoleMaster(RoleMaster roleMaster);
+    public Long saveRoleMaster(RoleMaster roleMaster);
 	
 	public boolean deleteRoleMaster(Long role_id);
 	
