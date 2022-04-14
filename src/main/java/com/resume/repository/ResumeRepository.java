@@ -1,5 +1,6 @@
 package com.resume.repository;
 
+import java.io.ByteArrayInputStream;
 import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import com.google.gson.Gson;
@@ -31,7 +32,7 @@ public class ResumeRepository implements IResumeRepository{
 			resume.setName(rs.getString("name"));
 			resume.setRole(new Gson().fromJson(rs.getString("role"), List.class));
 			resume.setTotal_exp(rs.getInt("total_exp"));
-			resume.setImage(rs.getString("image"));
+			resume.setImage(rs.getBytes("image"));
 			resume.setAbout_me(rs.getString("about_me"));
 			resume.setAbout_me_points(new Gson().fromJson(rs.getString("about_me_points"), List.class));
 			resume.setSkills(new Gson().fromJson(rs.getString("skills"), List.class));
@@ -54,7 +55,7 @@ public class ResumeRepository implements IResumeRepository{
 			resume.setName(rs.getString("name"));
 			resume.setRole(new Gson().fromJson(rs.getString("role"), List.class));
 			resume.setTotal_exp(rs.getInt("total_exp"));
-			resume.setImage(rs.getString("image"));
+			resume.setImage(rs.getBytes("image"));
 			resume.setAbout_me(rs.getString("about_me"));
 			resume.setAbout_me_points(new Gson().fromJson(rs.getString("about_me_points"), List.class));
 			resume.setSkills(new Gson().fromJson(rs.getString("skills"), List.class));
@@ -78,7 +79,7 @@ public class ResumeRepository implements IResumeRepository{
 		         	ps.setString(1, resume.getName());
 		         	ps.setString(2, new Gson().toJson(resume.getRole()));
 					ps.setInt(3, resume.getTotal_exp());
-					ps.setString(4, resume.getImage());
+					ps.setBlob(4, new ByteArrayInputStream(resume.getImage()));
 					ps.setLong(5, resume.getUserId());
 
 		         return ps;
