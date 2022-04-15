@@ -33,7 +33,7 @@ public class RoleMaster {
 	public boolean getIsVisible() {
 		return isVisible;
 	}
-	public void setVisible(boolean isVisible) {
+	public void setIsVisible(boolean isVisible) {
 		this.isVisible = isVisible;
 	}
 	

@@ -72,7 +72,10 @@ public class TechStackRepositoryImpl implements ITechStackRepository {
 	@Override
 	public Integer updateTechStack(TechStack techStack, Long techStackId) {
 		String query = "update techstack set techStackName = ?, techStackDesc = ?, isVisible = ? where techStackId = ?" ;
-		return jdbcTemplate.update(query, techStack.getTechStackName(), techStack.getTechStackDesc(), techStack.getIsVisible(),
+		return jdbcTemplate.update(query, 
+				techStack.getTechStackName(), 
+				techStack.getTechStackDesc(),
+				techStack.getIsVisible(),
 				techStackId);
 	}
 	
