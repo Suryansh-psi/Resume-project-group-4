@@ -11,7 +11,7 @@ create table resume(
     name varchar(50),
     role json,
     total_exp int,
-    image varchar(200),
+    image blob,
     about_me longtext,
     about_me_points json,
     skills json,
@@ -37,3 +37,19 @@ create table workExp(
     project_resp json,
     foreign key(resume_id) references resume (resume_id)
 );
+
+create table roleMaster(
+                           role_id int auto_increment primary key,
+						   role_name varchar(50),
+                           role_desc varchar(150),
+                           isVisible boolean
+                           );
+                           
+                           
+create table techStack(
+	techStackId int auto_increment primary key,
+    techStackName varchar(30),
+    techStackDesc varchar(150),
+    isVisible boolean
+);                           
+          

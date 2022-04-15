@@ -9,7 +9,7 @@ public class Resume {
 	private String name;
 	private List<String> role;
 	private int total_exp;
-	private String image;
+	private byte[] image;
 	private String about_me;
 	private List<String> about_me_points;
 	private List<String> skills;
@@ -50,10 +50,10 @@ public class Resume {
 	public void setTotal_exp(int total_exp) {
 		this.total_exp = total_exp;
 	}
-	public String getImage() {
+	public byte[] getImage() {
 		return image;
 	}
-	public void setImage(String image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 	public String getAbout_me() {

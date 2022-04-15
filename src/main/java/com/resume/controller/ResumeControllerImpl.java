@@ -1,5 +1,6 @@
 package com.resume.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.resume.model.Resume;
 import com.resume.service.IResumeService;
@@ -32,9 +35,17 @@ public class ResumeControllerImpl implements IResumeController{
 		Resume resume = resumeService.getAllDetailsByResumeId(resume_id);
 		return ResponseEntity.ok(resume);
 	}
-
 	@PostMapping("/resume")
-	public ResponseEntity<Long> saveResume(@RequestBody Resume resume) {
+	public ResponseEntity<Long> saveResume(@RequestBody Resume resume, @RequestParam("file") MultipartFile file) {
+		if(!file.isEmpty()) {
+			try {
+				resume.setImage(file.getBytes());
+			}
+			catch(IOException e){
+				e.printStackTrace();
+				
+			}
+		}
 		return ResponseEntity.ok(resumeService.saveResume(resume));
 	}
 	
