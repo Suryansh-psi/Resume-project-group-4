@@ -1,6 +1,7 @@
 package com.resume.repository;
 
 import java.sql.PreparedStatement;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -9,8 +10,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-
-import com.google.gson.Gson;
 import com.resume.model.RoleMaster;
 @Repository
 public class RoleMasterRepository implements IRoleMasterRepository{
@@ -29,7 +28,7 @@ public class RoleMasterRepository implements IRoleMasterRepository{
 					roleMaster.setRole_id(rs.getLong("role_id"));
 					roleMaster.setRole_name(rs.getString("role_name"));
 					roleMaster.setRole_desc(rs.getString("role_desc"));
-					roleMaster.setVisible(rs.getBoolean("isVisible"));
+					roleMaster.setIsVisible(rs.getBoolean("isVisible"));
 					return roleMaster;
 				}
 			);
@@ -43,7 +42,7 @@ public class RoleMasterRepository implements IRoleMasterRepository{
 			roleMaster.setRole_id(rs.getLong("role_id"));
 			roleMaster.setRole_name(rs.getString("role_name"));
 			roleMaster.setRole_desc(rs.getString("role_desc"));
-			roleMaster.setVisible(rs.getBoolean("isVisible"));
+			roleMaster.setIsVisible(rs.getBoolean("isVisible"));
 			return roleMaster;
 		}).stream().findFirst();
 	}
@@ -57,7 +56,6 @@ public class RoleMasterRepository implements IRoleMasterRepository{
 		
 		jdbcTemplate.update(connection ->{
 			PreparedStatement ps = connection.prepareStatement(query ,new String[] { "role_id" });
-	        
 	     	ps.setString(1, roleMaster.getRole_name());
 			ps.setString(2, roleMaster.getRole_desc());
 			ps.setBoolean(3, roleMaster.getIsVisible());
