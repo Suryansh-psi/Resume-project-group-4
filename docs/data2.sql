@@ -1,8 +1,9 @@
-create table user(user_id int auto_increment primary key, 
-username varchar(50),
-password varchar(50),
-gender varchar(10),
-dob date
+create table user(
+	user_id int auto_increment primary key, 
+	username varchar(50),
+	password varchar(50),
+	gender varchar(10),
+	dob date
 );
 
 
@@ -39,11 +40,11 @@ create table workExp(
 );
 
 create table roleMaster(
-                           role_id int auto_increment primary key,
-						   role_name varchar(50),
-                           role_desc varchar(150),
-                           isVisible boolean
-                           );
+	role_id int auto_increment primary key,
+    role_name varchar(50),
+    role_desc varchar(150),
+    isVisible boolean
+);
                            
                            
 create table techStack(
@@ -55,9 +56,9 @@ create table techStack(
 
 
 create table projectMaster(
-           project_id int auto_increment primary key,
-           project_name varchar(50),
-           project_desc varchar(200),
-           isVisible boolean
-           );                        
+	project_id int auto_increment primary key,
+    project_name varchar(50),
+    project_desc varchar(200),
+    isVisible boolean
+);                        
           
