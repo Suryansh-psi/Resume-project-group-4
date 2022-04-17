@@ -21,7 +21,7 @@ public class ResumeRepository implements IResumeRepository{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-//	private String INSERT_RESUME = "INSERT INTO resume(name, role, total_exp, image, about_me, about_me_points, skills, created_at, update_at, status, reviewer, user_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//	private String INSERT_RESUME = "INSERT INTO resume(name, role, total_exp,image, about_me, about_me_points, skills, created_at, update_at, status, reviewer, user_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	@Override
 	public List<Resume> getResumeByResumeId(Long resume_id) {
@@ -70,7 +70,7 @@ public class ResumeRepository implements IResumeRepository{
 	
 	@Override
 	public Long saveResume(Resume resume) {
-		String query = "INSERT INTO resume(name, role, total_exp, image,user_id) VALUES(?, ?, ?, ?, ?)";
+		String query = "INSERT INTO resume(name, role,image, total_exp,user_id ) VALUES(?, ?, ?, ?, ?)";
 		 KeyHolder keyHolder = new GeneratedKeyHolder();
 
 		   jdbcTemplate.update(connection -> {
@@ -78,10 +78,17 @@ public class ResumeRepository implements IResumeRepository{
 		         
 		         	ps.setString(1, resume.getName());
 		         	ps.setString(2, new Gson().toJson(resume.getRole()));
-					ps.setInt(3, resume.getTotal_exp());
-					ps.setBlob(4, new ByteArrayInputStream(resume.getImage()));
+//		         	ps.setBlob(3, new ByteArrayInputStream(resume.getImage()));
+		         	if (resume.getImage() == null) {
+						ps.setBlob(3, new ByteArrayInputStream("".getBytes()));
+					}else {
+						ps.setBlob(3, new ByteArrayInputStream(resume.getImage()));
+					}
+					ps.setInt(4, resume.getTotal_exp());
 					ps.setLong(5, resume.getUserId());
-
+						
+					
+					
 		         return ps;
 		       }, keyHolder);
 

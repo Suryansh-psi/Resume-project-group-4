@@ -17,13 +17,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.resume.model.Resume;
+import com.resume.model.WorkExp;
 import com.resume.service.IResumeService;
+import com.resume.service.IWorkExpService;
 
 @RestController
 public class ResumeControllerImpl implements IResumeController{
 	
 	@Autowired
 	private IResumeService resumeService;
+	
+	@Autowired
+	private IWorkExpService workExpService;
 	
 	@GetMapping("/resume/user/{user_id}")
 	public ResponseEntity<List<Resume>> getResumeByUserId(@PathVariable Long user_id) {
@@ -36,16 +41,16 @@ public class ResumeControllerImpl implements IResumeController{
 		return ResponseEntity.ok(resume);
 	}
 	@PostMapping("/resume")
-	public ResponseEntity<Long> saveResume(@RequestBody Resume resume, @RequestParam("file") MultipartFile file) {
-		if(!file.isEmpty()) {
-			try {
-				resume.setImage(file.getBytes());
-			}
-			catch(IOException e){
-				e.printStackTrace();
-				
-			}
-		}
+	public ResponseEntity<Long> saveResume(@RequestBody Resume resume) {
+//		if(!file.isEmpty()) {
+//			try {
+//				resume.setImage(file.getBytes());
+//			}
+//			catch(IOException e){
+//				e.printStackTrace();
+//				
+//			}
+//		} 
 		return ResponseEntity.ok(resumeService.saveResume(resume));
 	}
 	
@@ -71,6 +76,21 @@ public class ResumeControllerImpl implements IResumeController{
 	public ResponseEntity<Resume> updateSkills(@RequestBody Resume resume, @PathVariable Long resumeId) {
 		Resume response = resumeService.updateSkills(resume, resumeId);
 		return ResponseEntity.ok(response);
+	}
+	
+	@GetMapping("/resume/clone/{resumeId}")
+	public ResponseEntity<Long> cloneResume(@PathVariable Long resumeId) {
+		Resume res = resumeService.getAllDetailsByResumeId(resumeId);
+		List<WorkExp> res2 = res.getWorkExps();
+		res.setName(res.getName() + "Clone");
+		Long id = resumeService.saveResume(res);
+		resumeService.updateAboutSection(res, id);
+		resumeService.updateSkills(res, id);
+		for(int i=0; i<res2.size(); i++) {
+			res2.get(i).setResumeId(id);
+		}
+		List<Long> ids = workExpService.saveWorkExp(res2);
+		return ResponseEntity.ok(id);
 	}
 	
 	
