@@ -81,5 +81,14 @@ create table membership(
                resume_id int,
                foreign key(resume_id) references resume (resume_id)
                );
-                                             
+                     
+                     
+create table achievement(
+              achievementId int auto_increment primary key,
+              achievement_name varchar(50),
+              achievement_desc varchar(150),
+              resume_id int,
+              foreign key(resume_id) references resume (resume_id)
+              );
+                                      
           
