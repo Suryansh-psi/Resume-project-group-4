@@ -60,5 +60,26 @@ create table projectMaster(
     project_name varchar(50),
     project_desc varchar(200),
     isVisible boolean
-);                        
+);     
+
+
+create table skillMaster(
+              skillId int auto_increment primary key,
+              skill varchar(30),
+              category varchar(50),
+              isVisible boolean
+              );   
+              
+              
+              
+create table membership(
+               membershipId int auto_increment primary key,
+               membership_no int,
+               membership_type varchar(20),
+               membership_since Date,
+               expiry_date Date,
+               resume_id int,
+               foreign key(resume_id) references resume (resume_id)
+               );
+                                             
           

@@ -1,0 +1,759 @@
+{
+	"info": {
+		"_postman_id": "b01016b4-d7b7-4a22-9131-70450df0966e",
+		"name": "ResumeProjectGroup4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"test2\",\r\n    \"password\" : \"test_password\",\r\n    \"gender\": \"male\",\r\n    \"dob\" : \"2008-08-12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateResume",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"test\",\r\n    \"role\" : [\"test1\", \"test2\"],\r\n    \"total_exp\" : \"4\",\r\n    \"image\" : \"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EAAAAAAAAAAAAAAAAAAAAAAAHykAAAAAAAAAAAAAAAAAAAAAAAAAAHykAAgQAAgQAAAAAAAAAAAAAAAAAAHylCAhAAQzTQwgAAAAAAAAAAAADAAHykAAAAAAAAAAAAAAAAAAAAAAAAAAHykAAAAAAAAAAAAAAAAAAAAAAAAAAHykAAAAAAAAAAAAAAAAAAAAAAAAAAHykAAAAAAAAAwgAggQQgQAAAAAAAAHykAAAAAAAAichCDABADAAAAAAAAAHy0AAAAAAABAAAAAAAAAAAAAAAAAAHy0kEEEEEEEEEEEEEEEEEEEEEEEEV3y0IIIIIIIIIIIIIIIIIIIIIIIIJJ/ykAwAAAAAAAAAAAggAAAAAAAAAAAHykATgAAQzAQBzyBRSygigAAAABgAHy8AAAAAAAAAAAAAAAAAAAAAAAAAAXyw8888888888888888888888889/zzzzzzzzzzzzzjTzjzzzzzzzzzzzzzzzzzzzzzzzzywx203zzzzzzzzzzzzzzzzzzzzzzzmPPzlV3jzzzzzzzzzzzzzzzzzzzzwxzyz3zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz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\",\r\n    \"userId\" : \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/resume",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateWorkExp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"clientDesc\": \"test\",\r\n        \"country\": \"test\",\r\n        \"projectName\": \"test\",\r\n        \"role\": [\r\n            \"test\", \"test\"\r\n        ],\r\n        \"startDate\": \"2022-03-11\",\r\n        \"endDate\": \"2022-03-11\",\r\n        \"bussinessSol\": \"test\",\r\n        \"techStack\": [\r\n            \"test\", \"test1\"\r\n        ],\r\n        \"resumeId\": \"4\",\r\n        \"projectResp\": [\r\n            \"test\", \"test1\"\r\n        ]\r\n    },\r\n    {\r\n        \"clientDesc\": \"test\",\r\n        \"country\": \"test\",\r\n        \"projectName\": \"test\",\r\n        \"role\": [\r\n            \"test\", \"test\"\r\n        ],\r\n        \"startDate\": \"2022-03-11\",\r\n        \"endDate\": \"2022-03-11\",\r\n        \"bussinessSol\": \"test\",\r\n        \"techStack\": [\r\n            \"test\", \"test1\"\r\n        ],\r\n        \"resumeId\": \"4\",\r\n        \"projectResp\": [\r\n            \"test\", \"test1\"\r\n        ]\r\n    },\r\n    {\r\n        \"clientDesc\": \"test\",\r\n        \"country\": \"test\",\r\n        \"projectName\": \"test\",\r\n        \"role\": [\r\n            \"test\", \"test\"\r\n        ],\r\n        \"startDate\": \"2022-03-11\",\r\n        \"endDate\": \"2022-03-11\",\r\n        \"bussinessSol\": \"test\",\r\n        \"techStack\": [\r\n            \"test\", \"test1\"\r\n        ],\r\n        \"resumeId\": \"4\",\r\n        \"projectResp\": [\r\n            \"test\", \"test1\"\r\n        ]\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/workexp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workexp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteResume",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/resume/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteWorkExp",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/workexp/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workexp",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getWorkExpByResumeId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/workexp/resume/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workexp",
+						"resume",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getResumeByUserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/resume/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateResume",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"test2\",\r\n    \"role\" : [\"test20\", \"test21\"],\r\n    \"total_exp\" : \"7\",\r\n    \"image\" : \"this is a test image\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/resume/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAboutMe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"about_me\": \"string\",\r\n  \"about_me_points\": [\r\n    \"string51\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/resume/about/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"about",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSkills",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"skills\": [\r\n    \"strings\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/resume/skills/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"skills",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateWorkExp",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clientDesc\": \"string\",\r\n  \"country\": \"string2\",\r\n  \"projectName\": \"string\",\r\n  \"role\": [\r\n    \"string\"\r\n  ],\r\n  \"startDate\": \"2022-04-04T20:28:11.244Z\",\r\n  \"endDate\": \"2022-04-04T20:28:11.244Z\",\r\n  \"bussinessSol\": \"string\",\r\n  \"techStack\": [\r\n    \"string\"\r\n  ],\r\n  \"projectResp\": [\r\n    \"string\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/workexp/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workexp",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllDetailsByResumeId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/resume/alldetails/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resume",
+						"alldetails",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addMembership",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"membership_no\" :  1,\r\n        \"membership_type\" : \"temporary\",\r\n        \"membership_since\" : \"2008-08-12\",\r\n        \"expiry_date\": \"2008-07-10\",\r\n        \"resume_id\" : 1\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/membership",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"membership"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSkillMaster",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"skill\" : \"wireframes\",\r\n    \"category\" : \"category2\",\r\n    \"isVisible\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/skills",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"skills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSkillMaster",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/skills",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"skills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSkillMaster",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"skill\" : \"skill1\",\r\n    \"category\" : \"category3\",\r\n    \"isVisible\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/skills/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"skills",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSkillMaster",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/skills/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"skills",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProjectMaster",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"project_name\" : \"resume1\",\r\n    \"project_desc\" : \"It is our project\",\r\n    \"isVisible\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/project",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProjectMaster",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/project",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProjectMaster",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"project_name\" : \"tic-tac-toe\",\r\n    \"project_desc\" : \"It is our project\",\r\n    \"isVisible\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/project/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"project",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectMaster",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/project/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"project",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createRoleMaster",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role_name\" : \"developer\",\r\n    \"role_desc\" : \"this is 3 role \",\r\n    \"isVisible\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRoleMaster",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRoleMaster",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role_name\" : \"director\",\r\n    \"role_desc\" : \"role of manager \",\r\n    \"isVisible\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/role/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"role",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRoleMaster",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/role/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"role",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMembership",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/membership/resume/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"membership",
+						"resume",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateMembership",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"membership_no\" :  10,\r\n    \"membership_type\" : \"permanent\",\r\n    \"membership_since\" : \"2008-05-12\",\r\n    \"expiry_date\": \"2008-07-11\",\r\n    \"resume_id\" : 1\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/membership/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"membership",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteMembership",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/membership/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"membership",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
