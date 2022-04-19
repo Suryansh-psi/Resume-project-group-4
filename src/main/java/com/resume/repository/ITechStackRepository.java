@@ -14,7 +14,7 @@ public interface ITechStackRepository {
 	
 	public Long saveTechStack(TechStack techStack);
 	
-	public Integer deleteTechStack(Long TechStackId);
+	public Integer deleteTechStack(Long techStackId);
 	
 	public Integer updateTechStack(TechStack techStack, Long techStackId);
 }

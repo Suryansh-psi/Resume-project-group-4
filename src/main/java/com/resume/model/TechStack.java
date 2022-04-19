@@ -4,7 +4,7 @@ public class TechStack {
 	private Long techStackId;
 	private String techStackName;
 	private String techStackDesc; 
-	private boolean isVisible;
+	private Boolean isVisible;
 	
 	
 	public Long getTechStackId() {
@@ -25,12 +25,13 @@ public class TechStack {
 	public void setTechStackDesc(String techStackDesc) {
 		this.techStackDesc = techStackDesc;
 	}
-	public boolean getIsVisible() {
+	public Boolean getIsVisible() {
 		return isVisible;
 	}
-	public void setIsVisible(boolean isVisible) {
+	public void setIsVisible(Boolean isVisible) {
 		this.isVisible = isVisible;
 	}
+	
 	
 
 }

@@ -41,7 +41,7 @@ public class TechStackControllerImpl implements ITechStackController {
 	@PutMapping("/techstack/{techStackId}")
 	public ResponseEntity<TechStack> updateTechStack(@RequestBody TechStack techStack, @PathVariable Long techStackId) {
 		TechStack response = techStackServiceImpl.updateTechStack(techStack, techStackId);
-		return ResponseEntity.ok(techStack);
+		return ResponseEntity.ok(response);
 	}
 
 }
