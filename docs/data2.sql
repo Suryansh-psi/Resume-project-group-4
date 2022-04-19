@@ -91,4 +91,14 @@ create table achievement(
               foreign key(resume_id) references resume (resume_id)
               );
                                       
-          
+create table education (
+	educationId int auto_increment primary key,
+    educationName varchar(50),
+    educationType varchar(50),
+    educationLocation varchar(150),
+    startDate date,
+    endDate date,
+    percentage int,
+    resume_id int,
+    foreign key(resume_id) references resume (resume_id)
+);
