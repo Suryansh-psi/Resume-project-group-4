@@ -17,6 +17,13 @@ public class Resume {
 	private Date updated_at;
 	private String status;
 	private String reviewer;
+	private List<String> achievement;
+	private List<String> certificate;
+	private List<String> training;
+	private List<String> membership;
+	private int share;
+	private String comment;
+	private int managerId;
 	private Long userId;
 	private List<WorkExp> workExps;
 	
@@ -104,5 +111,48 @@ public class Resume {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+	public List<String> getAchievement() {
+		return achievement;
+	}
+	public void setAchievement(List<String> achievement) {
+		this.achievement = achievement;
+	}
+	public List<String> getCertificate() {
+		return certificate;
+	}
+	public void setCertificate(List<String> certificate) {
+		this.certificate = certificate;
+	}
+	public List<String> getTraining() {
+		return training;
+	}
+	public void setTraining(List<String> training) {
+		this.training = training;
+	}
+	public List<String> getMembership() {
+		return membership;
+	}
+	public void setMembership(List<String> membership) {
+		this.membership = membership;
+	}
+	public int getShare() {
+		return share;
+	}
+	public void setShare(int share) {
+		this.share = share;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	public int getManagerId() {
+		return managerId;
+	}
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
+	
 
 }

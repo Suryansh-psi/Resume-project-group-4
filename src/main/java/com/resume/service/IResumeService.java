@@ -20,6 +20,10 @@ public interface IResumeService {
 	
 	public Resume updateSkills(Resume resume, Long resumeId);
 	
+	public Resume updateAchievement(Resume resume, Long resumeId);
+	
+	public Resume updateMembershhip(Resume resume, Long resumeId);
+	
 	
 //	public Integer updateResume(Resume resume, Long resumeId);
 //	

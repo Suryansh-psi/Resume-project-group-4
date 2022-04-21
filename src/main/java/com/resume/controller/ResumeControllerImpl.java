@@ -78,6 +78,18 @@ public class ResumeControllerImpl implements IResumeController{
 		return ResponseEntity.ok(response);
 	}
 	
+	@PutMapping("/resume/achievement/{resumeId}")
+	public ResponseEntity<Resume> updateAchievement(@RequestBody Resume resume, @PathVariable Long resumeId) {
+		Resume response = resumeService.updateAchievement(resume, resumeId);
+		return ResponseEntity.ok(response);
+	}
+	
+	@PutMapping("/resume/membership/{resumeId}")
+	public ResponseEntity<Resume> updateMembership(@RequestBody Resume resume, @PathVariable Long resumeId) {
+		Resume response = resumeService.updateMembershhip(resume, resumeId);
+		return ResponseEntity.ok(response);
+	}
+	
 	@GetMapping("/resume/clone/{resumeId}")
 	public ResponseEntity<Long> cloneResume(@PathVariable Long resumeId) {
 		Resume res = resumeService.getAllDetailsByResumeId(resumeId);
