@@ -20,6 +20,13 @@ create table resume(
     update_at date,
     status varchar(50),
     reviewer varchar(50),
+    achievement json,
+    certificate json,
+    training json,
+    membership json,
+    share int,
+    comment varchar(500),
+    managerId int,
     user_id int,
     foreign key(user_id) references user (user_id)
 );
@@ -36,6 +43,18 @@ create table workExp(
     tech_stack json,
     resume_id int,
     project_resp json,
+    foreign key(resume_id) references resume (resume_id)
+);
+
+create table education (
+	educationId int auto_increment primary key,
+    educationName varchar(50),
+    educationType varchar(50),
+    educationLocation varchar(150),
+    startDate date,
+    endDate date,
+    percentage int,
+    resume_id int,
     foreign key(resume_id) references resume (resume_id)
 );
 
@@ -64,41 +83,32 @@ create table projectMaster(
 
 
 create table skillMaster(
-              skillId int auto_increment primary key,
-              skill varchar(30),
-              category varchar(50),
-              isVisible boolean
-              );   
-              
+    skillId int auto_increment primary key,
+    skill varchar(30),
+    category varchar(50),
+    isVisible boolean
+); 
+
+  
+---------------------------Not using the below tables for now-----------------------------        
               
               
 create table membership(
-               membershipId int auto_increment primary key,
-               membership_no int,
-               membership_type varchar(20),
-               membership_since Date,
-               expiry_date Date,
-               resume_id int,
-               foreign key(resume_id) references resume (resume_id)
-               );
-                     
-                     
-create table achievement(
-              achievementId int auto_increment primary key,
-              achievement_name varchar(50),
-              achievement_desc varchar(150),
-              resume_id int,
-              foreign key(resume_id) references resume (resume_id)
-              );
-                                      
-create table education (
-	educationId int auto_increment primary key,
-    educationName varchar(50),
-    educationType varchar(50),
-    educationLocation varchar(150),
-    startDate date,
-    endDate date,
-    percentage int,
+    membershipId int auto_increment primary key,
+    membership_no int,
+    membership_type varchar(20),
+    membership_since Date,
+    expiry_date Date,
     resume_id int,
     foreign key(resume_id) references resume (resume_id)
 );
+                     
+                     
+create table achievement(
+	achievementId int auto_increment primary key,
+    achievement_name varchar(50),
+    achievement_desc varchar(150),
+    resume_id int,
+    foreign key(resume_id) references resume (resume_id)
+);
+                                      

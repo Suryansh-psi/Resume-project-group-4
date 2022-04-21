@@ -135,6 +135,28 @@ public class ResumeRepository implements IResumeRepository{
 			);
 	}
 
+
+	@Override
+	public Integer updateAchievement(Resume resume, Long resumeId) {
+		String query = "update resume set achievement = ?, certificate = ?, training= ? where resume_id = ?";
+		
+		return jdbcTemplate.update(query, new Gson().toJson(resume.getAchievement()),
+					new Gson().toJson(resume.getCertificate()),
+					new Gson().toJson(resume.getTraining()),
+					resumeId
+				);
+	}
+
+
+	@Override
+	public Integer updateMembershhip(Resume resume, Long resumeId) {
+		String query = "update resume set membership = ? where resume_id = ?";
+		
+		return jdbcTemplate.update(query, new Gson().toJson(resume.getMembership()),
+					resumeId
+				);
+	}
+
 	
 
 }

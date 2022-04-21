@@ -19,4 +19,8 @@ public interface IResumeRepository {
 	public Integer updateAboutSection(Resume resume, Long resumeId);
 	
 	public Integer updateSkills(Resume resume, Long resumeId);
+	
+	public Integer updateAchievement(Resume resume, Long resumeId);
+	
+	public Integer updateMembershhip(Resume resume, Long resumeId);
 }

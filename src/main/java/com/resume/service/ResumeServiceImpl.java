@@ -95,6 +95,32 @@ public class ResumeServiceImpl implements IResumeService{
 		return response;
 	}
 
+	@Override
+	public Resume updateAchievement(Resume resume, Long resumeId) {
+		Resume resumeResponse = null;
+		int result = resumeRepository.updateAchievement(resume, resumeId);
+		if(result == 0) {
+			throw new ResumeNotFoundException("No such Resume exists");
+		}
+		else if(result > 0) {
+			resumeResponse = resumeRepository.getResumeByResumeId(resumeId).get(result - 1);
+		}
+		return resumeResponse;
+	}
+
+	@Override
+	public Resume updateMembershhip(Resume resume, Long resumeId) {
+		Resume resumeResponse = null;
+		int result = resumeRepository.updateMembershhip(resume, resumeId);
+		if(result == 0) {
+			throw new ResumeNotFoundException("No such Resume exists");
+		}
+		else if(result > 0) {
+			resumeResponse = resumeRepository.getResumeByResumeId(resumeId).get(result - 1);
+		}
+		return resumeResponse;
+	}
+
 	
 	
 	
