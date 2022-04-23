@@ -40,11 +40,46 @@ public class ResumeRepository implements IResumeRepository{
 			resume.setUpdated_at(rs.getDate("update_at"));
 			resume.setStatus(rs.getString("status"));
 			resume.setReviewer(rs.getString("reviewer"));
+			resume.setAchievement(new Gson().fromJson(rs.getString("achievement"), List.class));
+			resume.setCertificate(new Gson().fromJson(rs.getString("certificate"), List.class));
+			resume.setTraining(new Gson().fromJson(rs.getString("training"), List.class));
+			resume.setMembership(new Gson().fromJson(rs.getString("membership"), List.class));
+			resume.setShare(rs.getInt("share"));
+			resume.setComment(rs.getString("comment"));
+			resume.setManagerId(rs.getInt("managerId"));
 			resume.setUserId(rs.getLong("user_id"));
 			return resume;
 		});
 	}
 	
+	@Override
+	public List<Resume> getResumeByUserIdForManager(Long user_id, Long managerId) {
+		String query = "select * from resume where user_id = " + user_id +  " and managerId =" +  managerId +  " and share = 1";
+		return jdbcTemplate.query(query, (rs, rowNum) -> {
+			Resume resume = new Resume();
+			resume.setResumeId(rs.getLong("resume_id"));
+			resume.setName(rs.getString("name"));
+			resume.setRole(new Gson().fromJson(rs.getString("role"), List.class));
+			resume.setTotal_exp(rs.getInt("total_exp"));
+			resume.setImage(rs.getBytes("image"));
+			resume.setAbout_me(rs.getString("about_me"));
+			resume.setAbout_me_points(new Gson().fromJson(rs.getString("about_me_points"), List.class));
+			resume.setSkills(new Gson().fromJson(rs.getString("skills"), List.class));
+			resume.setCreated_at(rs.getDate("created_at"));
+			resume.setUpdated_at(rs.getDate("update_at"));
+			resume.setStatus(rs.getString("status"));
+			resume.setReviewer(rs.getString("reviewer"));
+			resume.setAchievement(new Gson().fromJson(rs.getString("achievement"), List.class));
+			resume.setCertificate(new Gson().fromJson(rs.getString("certificate"), List.class));
+			resume.setTraining(new Gson().fromJson(rs.getString("training"), List.class));
+			resume.setMembership(new Gson().fromJson(rs.getString("membership"), List.class));
+			resume.setShare(rs.getInt("share"));
+			resume.setComment(rs.getString("comment"));
+			resume.setManagerId(rs.getInt("managerId"));
+			resume.setUserId(rs.getLong("user_id"));
+			return resume;
+		});
+	}
 	
 	@Override
 	public List<Resume> getResumeByUserId(Long user_id) {
@@ -63,6 +98,13 @@ public class ResumeRepository implements IResumeRepository{
 			resume.setUpdated_at(rs.getDate("update_at"));
 			resume.setStatus(rs.getString("status"));
 			resume.setReviewer(rs.getString("reviewer"));
+			resume.setAchievement(new Gson().fromJson(rs.getString("achievement"), List.class));
+			resume.setCertificate(new Gson().fromJson(rs.getString("certificate"), List.class));
+			resume.setTraining(new Gson().fromJson(rs.getString("training"), List.class));
+			resume.setMembership(new Gson().fromJson(rs.getString("membership"), List.class));
+			resume.setShare(rs.getInt("share"));
+			resume.setComment(rs.getString("comment"));
+			resume.setManagerId(rs.getInt("managerId"));
 			resume.setUserId(rs.getLong("user_id"));
 			return resume;
 		});
@@ -156,6 +198,16 @@ public class ResumeRepository implements IResumeRepository{
 					resumeId
 				);
 	}
+
+
+	@Override
+	public Integer updateShare(Long resumeId) {
+		String query = "update resume set share = 1 where resume_id = ?";
+		return jdbcTemplate.update(query, resumeId);
+	}
+
+
+	
 
 	
 

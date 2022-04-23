@@ -35,6 +35,11 @@ public class ResumeControllerImpl implements IResumeController{
 		return ResponseEntity.ok(resumeService.getResumeByUserId(user_id));
 	}
 	
+	@GetMapping("/resume/manager/{user_id}/{managerId}")
+	public ResponseEntity<List<Resume>> getResumeByUserIdForManager(@PathVariable Long user_id, @PathVariable Long managerId) {
+		return ResponseEntity.ok(resumeService.getResumeByUserIdForManager(user_id, managerId));
+	}
+	
 	@GetMapping("resume/alldetails/{resume_id}")
 	public ResponseEntity<Resume> getAllDetailsByResumeId(@PathVariable Long resume_id) {
 		Resume resume = resumeService.getAllDetailsByResumeId(resume_id);
@@ -90,11 +95,18 @@ public class ResumeControllerImpl implements IResumeController{
 		return ResponseEntity.ok(response);
 	}
 	
+	@PutMapping("/resume/share/{resumeId}")
+	public ResponseEntity<Resume> updateShare(@PathVariable Long resumeId) {
+		Resume response = resumeService.updateShare(resumeId);
+		return ResponseEntity.ok(response);
+	}
+	
 	@GetMapping("/resume/clone/{resumeId}")
 	public ResponseEntity<Long> cloneResume(@PathVariable Long resumeId) {
 		Resume res = resumeService.getAllDetailsByResumeId(resumeId);
 		List<WorkExp> res2 = res.getWorkExps();
 		res.setName(res.getName() + "Clone");
+		res.setShare(0);
 		Long id = resumeService.saveResume(res);
 		resumeService.updateAboutSection(res, id);
 		resumeService.updateSkills(res, id);

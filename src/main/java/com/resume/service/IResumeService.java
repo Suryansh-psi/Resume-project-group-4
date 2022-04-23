@@ -8,6 +8,8 @@ public interface IResumeService {
 	
 	public Resume getAllDetailsByResumeId(Long resume_id);
 	
+	public List<Resume> getResumeByUserIdForManager(Long user_id, Long managerId);
+	
 	public List<Resume> getResumeByUserId(Long user_id);
 	
 	public Long saveResume(Resume resume);
@@ -23,6 +25,8 @@ public interface IResumeService {
 	public Resume updateAchievement(Resume resume, Long resumeId);
 	
 	public Resume updateMembershhip(Resume resume, Long resumeId);
+	
+	public Resume updateShare(Long resumeId);
 	
 	
 //	public Integer updateResume(Resume resume, Long resumeId);

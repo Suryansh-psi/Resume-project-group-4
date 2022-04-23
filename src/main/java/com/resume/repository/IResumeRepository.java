@@ -10,6 +10,8 @@ public interface IResumeRepository {
 	
 	public List<Resume> getResumeByUserId(Long resume_id);
 	
+	public List<Resume> getResumeByUserIdForManager(Long user_id, Long managerId);
+	
 	public Long saveResume(Resume resume);
 	
 	public Integer deleteResume(Long resumeId);
@@ -23,4 +25,6 @@ public interface IResumeRepository {
 	public Integer updateAchievement(Resume resume, Long resumeId);
 	
 	public Integer updateMembershhip(Resume resume, Long resumeId);
+	
+	public Integer updateShare(Long resumeId);
 }
