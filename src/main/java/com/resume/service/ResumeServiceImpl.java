@@ -29,6 +29,16 @@ public class ResumeServiceImpl implements IResumeService{
 		
 		return resume;
 	}
+	
+	@Override
+	public List<Resume> getResumeByUserIdForManager(Long user_id, Long managerId) {
+		List<Resume> resume = resumeRepository.getResumeByUserIdForManager(user_id, managerId);
+		if(resume.isEmpty()) {
+			throw new ResumeNotFoundException("Resume with ID : " + user_id + "Not Found");
+		}
+		
+		return resume;
+	}
 
 	@Override
 	public Long saveResume(Resume resume) {
@@ -120,6 +130,21 @@ public class ResumeServiceImpl implements IResumeService{
 		}
 		return resumeResponse;
 	}
+
+	@Override
+	public Resume updateShare(Long resumeId) {
+		Resume resumeResponse = null;
+		int result = resumeRepository.updateShare(resumeId);
+		if(result == 0) {
+			throw new ResumeNotFoundException("No such Resume exists");
+		}
+		else if(result > 0) {
+			resumeResponse = resumeRepository.getResumeByResumeId(resumeId).get(result - 1);
+		}
+		return resumeResponse;
+	}
+
+	
 
 	
 	
