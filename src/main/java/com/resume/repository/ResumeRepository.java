@@ -110,24 +110,33 @@ public class ResumeRepository implements IResumeRepository{
 		});
 	}
 	
+//	resume_id, name, role, total_exp, image, about_me, about_me_points, skills, created_at, update_at, status, 
+//	reviewer, achievement, certificate, training, membership, share, comment, managerId, user_id
+	
+//	created_at, update_at, 
+//	status, reviewer, share, comment, managerId
+	
 	@Override
 	public Long saveResume(Resume resume) {
-		String query = "INSERT INTO resume(name, role,image, total_exp,user_id ) VALUES(?, ?, ?, ?, ?)";
+		String query = "INSERT INTO resume(name, role, image, total_exp, status, reviewer, share, managerId, user_id ) VALUES(?, ?, ?, ?, ?, ?, ?, ? , ?)";
 		 KeyHolder keyHolder = new GeneratedKeyHolder();
 
 		   jdbcTemplate.update(connection -> {
 		       PreparedStatement ps = connection.prepareStatement(query ,new String[] { "resume_id" });
 		         
-		         	ps.setString(1, resume.getName());
-		         	ps.setString(2, new Gson().toJson(resume.getRole()));
-//		         	ps.setBlob(3, new ByteArrayInputStream(resume.getImage()));
-		         	if (resume.getImage() == null) {
+		         	ps.setString(1, resume.getName()); //name
+		         	ps.setString(2, new Gson().toJson(resume.getRole())); // role
+		         	if (resume.getImage() == null) { //image
 						ps.setBlob(3, new ByteArrayInputStream("".getBytes()));
 					}else {
 						ps.setBlob(3, new ByteArrayInputStream(resume.getImage()));
 					}
-					ps.setInt(4, resume.getTotal_exp());
-					ps.setLong(5, resume.getUserId());
+					ps.setInt(4, resume.getTotal_exp()); //total_exp
+					ps.setString(5, "Draft"); // status
+					ps.setString(6, "Pratham"); // reviewer
+					ps.setInt(7, 0); // share
+					ps.setInt(8, 1); // managerId
+					ps.setLong(9, resume.getUserId()); // userId
 						
 					
 					
@@ -202,8 +211,20 @@ public class ResumeRepository implements IResumeRepository{
 
 	@Override
 	public Integer updateShare(Long resumeId) {
-		String query = "update resume set share = 1 where resume_id = ?";
+		String query = "update resume set share = 1, status = 'Review' where resume_id = ?";
 		return jdbcTemplate.update(query, resumeId);
+	}
+
+	@Override
+	public Integer updateStatusToApprove(Long resumeId) {
+		String query = "update resume set status = 'Approved' where resume_id = ?";
+		return jdbcTemplate.update(query, resumeId);
+	}
+
+	@Override
+	public Integer updateComment(Resume resume, Long resumeId) {
+		String query = "update resume set comment = ? where resume_id = ?";
+		return jdbcTemplate.update(query, resume.getComment(), resumeId);
 	}
 
 

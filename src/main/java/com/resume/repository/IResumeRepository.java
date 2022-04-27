@@ -26,5 +26,9 @@ public interface IResumeRepository {
 	
 	public Integer updateMembershhip(Resume resume, Long resumeId);
 	
+	public Integer updateStatusToApprove(Long resumeId);
+	
+	public Integer updateComment(Resume resume, Long resumeId);
+	
 	public Integer updateShare(Long resumeId);
 }
