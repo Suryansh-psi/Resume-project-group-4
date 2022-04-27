@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.resume.exceptionHandler.ResumeNotFoundException;
 import com.resume.model.Resume;
 import com.resume.model.WorkExp;
+import com.resume.repository.IEducationRepository;
 import com.resume.repository.IResumeRepository;
 import com.resume.repository.IWorkExpRepository;
 
@@ -19,6 +20,9 @@ public class ResumeServiceImpl implements IResumeService{
 	
 	@Autowired
 	private IWorkExpRepository workExpRepository;
+	
+	@Autowired
+	private IEducationRepository educationRepository;
 	
 	@Override
 	public List<Resume> getResumeByUserId(Long user_id) {
@@ -49,6 +53,7 @@ public class ResumeServiceImpl implements IResumeService{
 	@Override
 	public boolean deleteResume(Long resumeId) {
 		Integer result = workExpRepository.deleteWorkExpByResumeId(resumeId);
+		result = educationRepository.deleteEducationByResumeId(resumeId);
 //		if (result > 0) {
 			
 			result = resumeRepository.deleteResume(resumeId);
@@ -135,6 +140,32 @@ public class ResumeServiceImpl implements IResumeService{
 	public Resume updateShare(Long resumeId) {
 		Resume resumeResponse = null;
 		int result = resumeRepository.updateShare(resumeId);
+		if(result == 0) {
+			throw new ResumeNotFoundException("No such Resume exists");
+		}
+		else if(result > 0) {
+			resumeResponse = resumeRepository.getResumeByResumeId(resumeId).get(result - 1);
+		}
+		return resumeResponse;
+	}
+
+	@Override
+	public Resume updateStatusToApprove(Long resumeId) {
+		Resume resumeResponse = null;
+		int result = resumeRepository.updateStatusToApprove(resumeId);
+		if(result == 0) {
+			throw new ResumeNotFoundException("No such Resume exists");
+		}
+		else if(result > 0) {
+			resumeResponse = resumeRepository.getResumeByResumeId(resumeId).get(result - 1);
+		}
+		return resumeResponse;
+	}
+
+	@Override
+	public Resume updateComment(Resume resume, Long resumeId) {
+		Resume resumeResponse = null;
+		int result = resumeRepository.updateComment(resume, resumeId);
 		if(result == 0) {
 			throw new ResumeNotFoundException("No such Resume exists");
 		}

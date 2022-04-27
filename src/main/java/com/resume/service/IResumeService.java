@@ -26,6 +26,10 @@ public interface IResumeService {
 	
 	public Resume updateMembershhip(Resume resume, Long resumeId);
 	
+	public Resume updateStatusToApprove(Long resumeId);
+	
+	public Resume updateComment(Resume resume, Long resumeId);
+	
 	public Resume updateShare(Long resumeId);
 	
 	

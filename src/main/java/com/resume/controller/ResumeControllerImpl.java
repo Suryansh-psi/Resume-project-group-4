@@ -89,6 +89,19 @@ public class ResumeControllerImpl implements IResumeController{
 		return ResponseEntity.ok(response);
 	}
 	
+	@PutMapping("/resume/approve/{resumeId}")
+	public ResponseEntity<Resume> updateStatusToApprove(@PathVariable Long resumeId) {
+		Resume response = resumeService.updateStatusToApprove(resumeId);
+		return ResponseEntity.ok(response);
+	}
+	
+	@PutMapping("/resume/comment/{resumeId}")
+	public ResponseEntity<Resume> updateComment(@RequestBody Resume resume, @PathVariable Long resumeId) {
+		Resume response = resumeService.updateComment(resume, resumeId);
+		return ResponseEntity.ok(response);
+	}
+	
+	
 	@PutMapping("/resume/membership/{resumeId}")
 	public ResponseEntity<Resume> updateMembership(@RequestBody Resume resume, @PathVariable Long resumeId) {
 		Resume response = resumeService.updateMembershhip(resume, resumeId);

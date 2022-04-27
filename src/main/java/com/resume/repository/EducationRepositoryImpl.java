@@ -91,7 +91,7 @@ public class EducationRepositoryImpl implements IEducationRepository {
 
 	@Override
 	public Integer deleteEducationByResumeId(Long resumeId) {
-		String query = "delete from education where resumeId = ?";
+		String query = "delete from education where resume_id = ?";
 		return jdbcTemplate.update(query, resumeId);
 	}
 
