@@ -26,7 +26,14 @@ public class Resume {
 	private int managerId;
 	private Long userId;
 	private List<WorkExp> workExps;
+	private List<Education> educations;
 	
+	public List<Education> getEducations() {
+		return educations;
+	}
+	public void setEducations(List<Education> educations) {
+		this.educations = educations;
+	}
 	public List<WorkExp> getWorkExps() {
 		return workExps;
 	}

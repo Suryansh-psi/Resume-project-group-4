@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.resume.exceptionHandler.ResumeNotFoundException;
+import com.resume.model.Education;
 import com.resume.model.Resume;
 import com.resume.model.WorkExp;
 import com.resume.repository.IEducationRepository;
@@ -104,9 +105,11 @@ public class ResumeServiceImpl implements IResumeService{
 	public Resume getAllDetailsByResumeId(Long resume_id) {
 		List<Resume> resume = resumeRepository.getResumeByResumeId(resume_id);
 		List<WorkExp> workExpList = workExpRepository.getWorkExpByResumeId(resume_id);
+		List<Education> eduList = educationRepository.getEducationByResumeId(resume_id);
 		Resume response = resume.get(0);
 		
 		response.setWorkExps(workExpList);
+		response.setEducations(eduList);
 		return response;
 	}
 
